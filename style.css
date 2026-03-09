@@ -1,0 +1,95 @@
+/* File: style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* Header bergaya otomotif (gelap & elegan) */
+header {
+    background: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 4rem 1rem;
+    border-bottom: 5px solid #e74c3c; /* Aksen merah sporty */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+header h1 span {
+    color: #e74c3c;
+}
+
+h2 {
+    border-left: 5px solid #e74c3c;
+    padding-left: 15px;
+    margin: 2rem 0 1.5rem 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Grid untuk menampilkan kategori mobil/layanan */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #e74c3c;
+}
+
+.card h3 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+/* Bagian Kontak */
+#contact {
+    background: #fff;
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
