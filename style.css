@@ -1,95 +1,271 @@
-/* File: style.css */
+/* Reset & Variabel */
+:root {
+    --primary: #3b82f6;
+    --secondary: #9333ea;
+    --accent: #06b6d4;
+    --bg-dark: #0f172a;
+    --text-muted: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem;
-}
-
-/* Header bergaya otomotif (gelap & elegan) */
-header {
-    background: #1a1a1a;
+    background: var(--bg-dark);
     color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background Animated Blobs */
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    filter: blur(100px);
+    border-radius: 50%;
+    opacity: 0.25;
+    animation: move 20s infinite alternate;
+}
+
+.blob-1 { top: -150px; left: -150px; }
+.blob-2 { bottom: -150px; right: -150px; background: var(--accent); animation-delay: -5s; }
+
+@keyframes move {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 100px); }
+}
+
+/* Glassmorphism Reusable Class */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+}
+
+/* Navbar */
+.navbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1100px;
+    padding: 15px 30px;
+}
+
+.logo { font-size: 1.5rem; font-weight: 600; }
+.logo span { color: var(--primary); }
+
+/* Main Content */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 60px auto;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 30px;
     text-align: center;
-    padding: 4rem 1rem;
-    border-bottom: 5px solid #e74c3c; /* Aksen merah sporty */
+    margin-bottom: 50px;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    letter-spacing: 2px;
+.hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, #fff 30%, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-header h1 span {
-    color: #e74c3c;
+.hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 1.1rem;
 }
 
-h2 {
-    border-left: 5px solid #e74c3c;
-    padding-left: 15px;
-    margin: 2rem 0 1.5rem 0;
-    text-transform: uppercase;
+/* Features Grid */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    padding: 40px;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-item:hover {
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.icon { font-size: 4rem; margin-bottom: 20px; display: block; }
+.feature-item h3 { margin-bottom: 15px; color: var(--primary); font-size: 1.5rem; }
+
+/* List Styling */
+
+/* Menghilangkan box latar belakang gambar */
+/* Menyamakan tinggi area gambar kendaraan */
+.image-container {
+    width: 100%;
+    /* Atur tinggi yang sama untuk kedua kartu (misal 180px) */
+    height: 180px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background: none; /* Tanpa bingkai/background */
+    overflow: visible; /* Agar bayangan/shadow tidak terpotong */
+}
+
+.unit-img {
+    /* Memastikan gambar mengisi area tanpa melebihi batas tinggi */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    
+    object-fit: contain; /* Gambar akan proporsional & tidak terpotong */
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hover effect tetap seimbang */
+.feature-item:hover .unit-img {
+    transform: scale(1.08) translateY(-5px);
+}
+
+
+/* Efek hover agar gambar terasa lebih hidup */
+.feature-item:hover .unit-img {
+    transform: scale(1.08) translateY(-5px);
+}
+
+
+.unit-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar akan memenuhi area tanpa gepeng */
+    transition: transform 0.5s ease;
+}
+
+/* Efek Zoom saat card di-hover */
+.feature-item:hover .unit-img {
+    transform: scale(1.1);
+}
+
+/* Perbaikan untuk teks list agar tetap rapi */
+.unit-list {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.unit-list {
+    list-style: none;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.unit-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    color: #cbd5e1;
+}
+
+.check {
+    color: #22c55e;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+/* WhatsApp Floating */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: white;
+    z-index: 999;
+    border-radius: 100px;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background: rgba(37, 211, 102, 0.3);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero { padding: 50px 20px; }
+    .whatsapp-float span { display: none; }
+    .whatsapp-float { padding: 15px; border-radius: 50%; }
+}
+
+/* Footer Simple Style */
+.footer-simple {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto 100px auto; /* Margin bawah untuk ruang tombol WA */
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom strong {
+    color: var(--primary);
     font-weight: 600;
 }
 
-/* Grid untuk menampilkan kategori mobil/layanan */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    border-color: #e74c3c;
-}
-
-.card h3 {
-    color: #e74c3c;
-    margin-bottom: 10px;
-}
-
-/* Bagian Kontak */
-#contact {
-    background: #fff;
-    margin-top: 3rem;
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-footer {
-    text-align: center;
-    padding: 3rem;
-    font-size: 0.85rem;
-    color: #888;
-}
-
-/* Responsif untuk HP */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.8rem;
+/* Penyesuaian Mobile */
+@media (max-width: 768px) {
+    .footer-simple {
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        margin-bottom: 0; /* Menempel di bawah pada mobile */
+        padding-bottom: 40px; 
     }
 }

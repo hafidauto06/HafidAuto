@@ -3,284 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hafid_Auto</title>
-    
-    <style>
-        /* --- 1. SETTING DASAR --- */
-        :root {
-            --warna-utama: #0d47a1; 
-            --warna-aksen: #1a1a1a;
-            --warna-bg: #f4f7f9;
-            --radius: 12px;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 15px;
-            background: var(--warna-bg);
-            color: #333;
-        }
-
-        /* --- 2. CONTAINER UTAMA --- */
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 0;
-            border-top: 10px solid var(--warna-utama);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        /* --- 3. HEADER --- */
-        .header-section { 
-    text-align: center; /* Memastikan block di dalamnya berada di tengah */
-    padding: 35px 25px;
-    background: #fff;
-}
-
-.header-section h1 { 
-    margin: 0 auto; 
-    color: var(--warna-aksen); 
-    font-size: 2.2em;    
-    font-weight: 900;    
-    text-transform: uppercase;
-    max-width: 400px; /* Batasi lebar agar justify terlihat efeknya */
-    text-align: center;
-    text-align-last: center; /* KUNCI: Memaksa baris terakhir (atau baris tunggal) untuk rata kanan-kiri */
-}
-
-.header-section p { 
-    color: #444; 
-    font-size: 0.95em; 
-    margin: 10px auto 0 auto; 
-    font-weight: 500;
-    letter-spacing: 1px;
-    max-width: 400px; /* Samakan dengan lebar H1 agar sejajar vertikal */
-    text-align: justify;
-    text-align-last: center; /* Sub-judul biasanya lebih manis jika baris terakhirnya di tengah */
-}
-
-.inisial {
-    color: #e53935;
-}
-
-/* Selector khusus untuk inisial merah */
-.inisial {
-    color: #e53935; /* Merah tegas */
-    font-size: 1.1em; /* Sedikit lebih besar untuk penekanan */
-}
-
-
-/* Membuat huruf pertama berwarna merah */
-.header-section h1::first-letter {
-    color: #e53935; /* Merah tegas */
-    font-size: 1.2em; /* Sedikit lebih besar dari huruf lainnya */
-}
-
-.header-section p { 
-    color: #444; 
-    font-size: 0.95em; 
-    margin-top: 8px; 
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-        /* --- 4. SISTEM TAB (4 TAB) --- */
-        .tabs { display: flex; flex-wrap: wrap; }
-        .tabs input[type="radio"] { display: none; }
-        
-        .tabs label {
-            padding: 15px 2px;
-            cursor: pointer;
-            background: #f8f9fa;
-            font-weight: bold;
-            flex: 1;
-            text-align: center;
-            border-bottom: 2px solid #ddd;
-            transition: all 0.3s ease;
-            font-size: 11px; /* Ukuran font disesuaikan agar muat 4 tab */
-        }
-
-        #tab-cv:checked ~ label[for="tab-cv"],
-        #tab-mobil:checked ~ label[for="tab-mobil"],
-        #tab-motor:checked ~ label[for="tab-motor"],
-        #tab-hubungi:checked ~ label[for="tab-hubungi"] {
-            background: #fff;
-            color: var(--warna-utama);
-            border-bottom: 3px solid var(--warna-utama);
-        }
-
-        .panel {
-            display: none;
-            width: 100%;
-            padding: 25px;
-            background: #fff;
-            box-sizing: border-box;
-            min-height: 380px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        #tab-cv:checked ~ .panel-cv,
-        #tab-mobil:checked ~ .panel-mobil,
-        #tab-motor:checked ~ .panel-motor,
-        #tab-hubungi:checked ~ .panel-hubungi { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* --- 5. KONTEN PRODUK --- */
-        .product-card {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-        
-        .product-img {
-            width: 90px;
-            height: 65px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #f0f0f0;
-        }
-
-        .product-info { flex: 1; }
-        .product-name { font-weight: bold; display: block; font-size: 1em; color: #222; }
-        .product-desc { font-size: 0.8em; color: #666; line-height: 1.4; }
-
-        /* --- 6. TOMBOL WHATSAPP --- */
-        .wa-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #25d366;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .wa-btn:hover { background: #128c7e; transform: translateY(-2px); }
-
-        /* --- 7. FOOTER --- */
-        .footer { text-align: center; font-size: 11px; color: #aaa; padding: 20px 0; }
-
-        @media (min-width: 450px) {
-            .tabs label { font-size: 13px; }
-        }
-    </style>
+    <title>Hafid Auto | Jual Beli Kendaraan Berkualitas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="container">
-       <div class="header-section">
-    <h1><span class="inisial">H</span>afid_<span class="inisial">A</span>uto</h1>
-    <p>Solusi Kendaraan Berkualitas (Mobil & Motor)</p>
-</div>
-
-
-
-
-        <div class="tabs">
-            <input type="radio" name="main-tabs" id="tab-cv" checked>
-            <label for="tab-cv">PROFIL</label>
-
-            <input type="radio" name="main-tabs" id="tab-mobil">
-            <label for="tab-mobil">UNIT MOBIL</label>
-
-            <input type="radio" name="main-tabs" id="tab-motor">
-            <label for="tab-motor">UNIT MOTOR</label>
-
-            <input type="radio" name="main-tabs" id="tab-hubungi">
-            <label for="tab-hubungi">KONTAK</label>
-
-            <div class="panel panel-cv">
-                <h3 style="color: var(--warna-utama);">Tentang Hafid_Auto</h3>
-                <p>Kami melayani jual beli mobil dan motor berkualitas dengan standar inspeksi yang ketat.</p>
-                <div style="background: #f0f4fa; padding: 15px; border-radius: 8px; border-left: 4px solid var(--warna-utama);">
-                    <ul style="margin: 0; padding-left: 20px; font-size: 0.95em;">
-                        <li>Garansi Unit Pilihan</li>
-                        <li>Dokumen Lengkap & Aman</li>
-                        <li>Harga Bersaing</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="panel panel-mobil">
-                <h3 style="color: var(--warna-utama);">Katalog Mobil</h3>
-                
-                <div class="product-card">
-                    <img src="images/Warna-New-Xpander-2023.jpg" alt="Toyota Avanza" class="product-img">
-                    <div class="product-info">
-                        <span class="product-name">Mitsubishi Xpander Ultimate 2023</span>
-                        <span class="product-desc">AT, hitam, KM 15rb. Record servis resmi.</span>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="images/AvanzaVeloz2022.jpeg" alt="Toyota Avanza" class="product-img">
-                    <div class="product-info">
-                        <span class="product-name">Toyota Avanza Veloz 2022</span>
-                        <span class="product-desc">AT, Putih, KM 15rb. Record servis resmi.</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="images/honda-hr-v-color-744616.jpg" alt="Honda HRV" class="product-img">
-                    <div class="product-info">
-                        <span class="product-name">Honda HR-V SE 2021</span>
-                        <span class="product-desc">CVT, Abu-abu. Kondisi istimewa, pajak on.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-motor">
-                <h3 style="color: var(--warna-utama);">Katalog Motor</h3>
-                
-                <div class="product-card">
-                    <img src="images/images (35).jpeg" alt="Honda Vario" class="product-img">
-                    <div class="product-info">
-                        <span class="product-name">Honda Vario 160 ABS 2023</span>
-                        <span class="product-desc">Warna Hitam Matte, KM 5rb, Mulus seperti baru.</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="images/yamaha-nmax-turbo-color-563930.jpg" alt="Yamaha NMAX" class="product-img">
-                    <div class="product-info">
-                        <span class="product-name">Yamaha NMAX Turbo 2024</span>
-                        <span class="product-desc">Warna Biru, Tangan pertama, Surat lengkap.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-hubungi" style="text-align: center;">
-                <h3 style="color: var(--warna-utama);">Hubungi Kami</h3>
-                <p>Jl. Arya Banjar Getas, Mataram, Nusa Tenggara Barat</p>
-
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
-                <a href="https://wa.me/6287864482115?text=Halo%20Hafid_Auto,%20saya%20ingin%20tanya%20unit%20mobil/motor." 
-                   class="wa-btn" target="_blank">
-                   CHAT ADMIN VIA WHATSAPP
-                </a>
-            </div>
-        </div>
-
-        <div class="footer">
-            &copy; 2026 Hafid_Auto - Terpercaya Sejak 2015
-        </div>
+    <div class="background-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
     </div>
 
+    <header class="navbar-container">
+        <nav class="glass-card navbar">
+            <div class="logo">Hafid <span>Auto</span></div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <div class="glass-card hero">
+                <h1>Temukan Kendaraan <br><span>Impian Anda</span></h1>
+                <p>Pusat jual beli mobil dan motor baru dan bekas berkualitas di <strong>Hafid Auto</strong>. Unit terjamin, surat lengkap, dan harga paling bersahabat.</p>
+            </div>
+        </section>
+
+         <section class="features">
+            <article class="glass-card feature-item">
+                <div class="image-container">
+                    <img src="images/toyota-land-cruiser-300.png" alt="Jual Beli Mobil" class="unit-img">
+                </div>
+                <h3>Jual Beli Mobil</h3>
+                <p>Unit keluarga hingga city car dengan inspeksi ketat 100+ titik.</p>
+                <ul class="unit-list">
+                    <li><span class="check">✓</span> Bebas Banjir & Tabrakan</li>
+                    <li><span class="check">✓</span> Surat-Surat Terjamin</li>
+                    <li><span class="check">✓</span> Low Odometer </li>
+                </ul>
+            </article>
+
+            <article class="glass-card feature-item">
+                <div class="image-container">
+                    <img src="images/bmw-transparent-S1000RR.png" alt="Jual Beli Motor" class="unit-img">
+                </div>
+                <h3>Jual Beli Motor</h3>
+                <p>Koleksi matic dan sport kondisi istimewa siap pakai.</p>
+                <ul class="unit-list">
+                    <li><span class="check">✓</span> Low Odometer</li>
+                    <li><span class="check">✓</span> Mesin Standar Pabrik</li>
+                    <li><span class="check">✓</span> Bebas Banjir dan Tabrakan </li>
+                </ul>
+            </article>
+        </section>
+
+    </main>
+    
+     <footer class="glass-card footer-simple">
+        <div class="footer-bottom">
+            <p>&copy; 2026 <strong>Hafid Auto</strong>. All rights reserved. | Pusat Kendaraan Berkualitas</p>
+        </div>
+    </footer>
+
+
+
+    <a href="https://wa.me/6287864482115?text=Halo%20Hafid_Auto,%20saya%20ingin%20tanya%20unit%20mobil/motor." 
+       class="whatsapp-float glass-card" 
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="25">
+        <span>Hubungi Kami</span>
+    </a>
 </body>
 </html>
